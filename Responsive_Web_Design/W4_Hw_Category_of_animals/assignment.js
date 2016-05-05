@@ -20,7 +20,6 @@ $(document).ready(function(){
     var animals_index = this.id.split("-")[1];
     var specific_category = animals_data.category[category_index];
     var specific_content = specific_category.animals[animals_index];
-    console.log(specific_category.name);
     var html = animals_template(specific_category);
     $('#animals').html(html);
   });
