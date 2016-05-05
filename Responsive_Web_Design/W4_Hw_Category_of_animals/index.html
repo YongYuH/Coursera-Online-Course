@@ -39,7 +39,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Category of animals</a>
+        <a class="navbar-brand" href="">Category of animals</a>
       </div> <!-- /collapsed navbar -->
 
       <!-- start un-collapsed navbar -->
@@ -53,7 +53,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{name}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{#each animals}}
-              <li class="animal_btn"><a href="index.html#{{name}}">{{name}}</a></li>
+              <li class="animal_btn" id="{{@../index}}-{{@index}}"><a href="index.html#{{name}}">{{name}}</a></li>
               {{/each}}
             </ul>
           </li> 
@@ -65,24 +65,21 @@
   </script>
 
   <script id="animals-template" type="text/x-handlebars-template">
-    <div class="category">
-      {{#each category}}
-       
-        <h1>{{name}}</h1>
-        {{#each animals}}
-         <div class="animals">
-          <div class="row">
-            <h2 class="anchor" id="{{name}}">{{name}}</h2>
-            <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
-            <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
-          </div>
-          <h3>description of {{name}}: </h3>
-          <div>{{description}}</div>
-          </div> <!-- /animals -->
-        {{/each}}
+    <h1>{{name}}</h1>
+      {{#animals}}
+        <div class="row">
+          <h2 class="anchor" id="{{name}}">{{name}}</h2>
+          <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
+          <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
+        </div>
+        <h3>description of {{name}}: </h3>
+        <div>{{description}}</div>
+      {{/animals}}
+  </script>
 
-      {{/each}}
-    </div> <!-- /category -->
+  <script id="default-template" type="text/x-handlebars-template">
+    <h1>Click the category of animals, </h1>
+    <h1>and get the information of these animals!</h1>
   </script>
 
 </body>
