@@ -22,7 +22,8 @@
   <!-- put your HTML here -->
   <nav class="navbar navbar-inverse navbar-fixed-top" id="nav"></nav>
 
-  <div class="container-fluid" id="animals" ></div>
+  <div class="container-fluid" id="category"></div>
+  <div class="container-fluid" id="animals"></div>
 
   <script id="nav-template" type="text/x-handlebars-template">
     <div class="container">
@@ -50,7 +51,7 @@
           <!-- start of category li-->
           {{#each category}}
           <li> 
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{name}}<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="{{@index}}">{{name}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{#each animals}}
               <li class="animal_btn" id="{{@../index}}-{{@index}}"><a href="index.html#{{name}}">{{name}}</a></li>
@@ -59,27 +60,44 @@
           </li> 
           {{/each}}
           <!-- /category li-->
+          <li><a class="show_all" href="#">show all animals</a></li>
         </ul>
       </div> <!-- /un-collapsed bar-->
     </div> <!-- /container-->
   </script>
 
-  <script id="animals-template" type="text/x-handlebars-template">
-    <h1>{{name}}</h1>
-      {{#animals}}
-        <div class="row">
-          <h2 class="anchor" id="{{name}}">{{name}}</h2>
-          <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
-          <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
-        </div>
-        <h3>description of {{name}}: </h3>
-        <div>{{description}}</div>
-      {{/animals}}
-  </script>
-
   <script id="default-template" type="text/x-handlebars-template">
     <h1>Click the category of animals, </h1>
-    <h1>and get the information of these animals!</h1>
+    <h1>and get the information of specific animal!</h1>
+  </script>
+
+  <script id="category-template" type="text/x-handlebars-template">
+    <h1>{{name}}</h1>
+  </script>
+
+  <script id="animals-template" type="text/x-handlebars-template">
+    <div class="row">
+      <h2 class="anchor" id="{{name}}">{{name}}</h2>
+      <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
+      <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
+    </div>
+    <h3>description of {{name}}: </h3>
+    <div>{{description}}</div>
+  </script>
+
+  <script id="show-all-template" type="text/x-handlebars-template">
+    {{#each category}}
+    <h1>{{name}}</h1>
+      {{#each animals}}
+      <div class="row">
+        <h2 class="anchor" id="{{name}}">{{name}}</h2>
+        <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
+        <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
+      </div>
+      <h3>description of {{name}}: </h3>
+      <div>{{description}}</div>
+      {{/each}}
+    {{/each}}
   </script>
 
 </body>
