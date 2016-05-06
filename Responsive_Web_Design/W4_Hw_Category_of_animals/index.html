@@ -23,7 +23,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top" id="nav"></nav>
 
   <div class="container-fluid" id="category"></div>
-  <div class="container-fluid" id="animals"></div>
+  <div class="container" id="animals"></div>
 
   <script id="nav-template" type="text/x-handlebars-template">
     <div class="container">
@@ -54,7 +54,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="{{@index}}">{{name}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{#each animals}}
-              <li class="animal_btn" id="{{@../index}}-{{@index}}"><a href="index.html#{{name}}">{{name}}</a></li>
+              <li class="animal_btn" id="{{@../index}}-{{@index}}"><a href="#">{{name}}</a></li>
               {{/each}}
             </ul>
           </li> 
@@ -67,8 +67,7 @@
   </script>
 
   <script id="default-template" type="text/x-handlebars-template">
-    <h1>Click the category of animals, </h1>
-    <h1>and get the information of specific animal!</h1>
+    <h1>Click the category of animals, and get the information of specific animal!</h1>
   </script>
 
   <script id="category-template" type="text/x-handlebars-template">
