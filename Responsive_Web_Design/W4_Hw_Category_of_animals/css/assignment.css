@@ -1,0 +1,39 @@
+.about {
+  color: #ADADAD;
+  float: right; 
+}
+
+.crop-img {
+  max-height: 150px;
+  max-width: 100%;
+}
+
+.container {
+  margin-left: 0px;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+.category_block {
+  padding-bottom: 80px;
+}
+
+.category_name {
+  font-size: 64px;
+  color: #ADADAD;
+}
+
+.animals_block {
+  padding-bottom: 50px;
+}
+
+.figure {
+  max-width: 350px;
+}
+
+.figure img {
+  width: 100%;
+  max-height: 100%;
+}

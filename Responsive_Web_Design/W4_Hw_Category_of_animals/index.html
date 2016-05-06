@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Category of animals</title>
-  
+
   <!-- include our libraries and css files -->
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/handlebars-v3.0.3.js"></script>
@@ -12,14 +12,16 @@
 
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="assignment.css" rel="stylesheet">
-
 </head>
 
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" id="nav"></nav>
 
-  <div class="container-fluid" id="category"></div>
-  <div class="container" id="animals"></div>
+  <div class="container-fluid">
+    <div class="page-header"> <h5 class="about">2016 May, by YongYuH</h5> </div> 
+    <div class="container" id="category-title"></div>
+    <div class="container" id="content"></div>
+  </div>
 
   <script id="nav-template" type="text/x-handlebars-template">
     <div class="container">
@@ -36,7 +38,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="">Category of animals</a>
+        <a class="navbar-brand" href="">Animals Wiki</a>
       </div> <!-- /collapsed navbar -->
 
       <!-- start un-collapsed navbar -->
@@ -50,7 +52,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="{{@index}}">{{name}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{#each animals}}
-              <li class="animal_btn" id="{{@../index}}-{{@index}}"><a href="#">{{name}}</a></li>
+              <li class="nav_animal_btn" id="{{@../index}}-{{@index}}"><a href="index.html#anchor">{{name}}</a></li>
               {{/each}}
             </ul>
           </li> 
@@ -63,36 +65,67 @@
   </script>
 
   <script id="default-template" type="text/x-handlebars-template">
-    <h1>Click the category of animals, and get the information of specific animal!</h1>
+    <div class="row">
+    {{#each category}}
+      <div class="col-xs-12 col-md-4"> 
+        <div class="category-thumbnail" data-id="{{@index}}">
+          <a href="#"><img class="crop-img" src="{{animals.[0].image1}}" alt=""/></a>
+          <div class="caption">
+            <h4> {{name}} </h4>
+              <p>{{animals.length}} animals</p>
+          </div>
+        </div> <!-- / album-thumbnail -->
+      </div> <!-- / col -->
+    {{/each}}
+    </div> <!-- / row -->
   </script>
 
   <script id="category-template" type="text/x-handlebars-template">
-    <h1>{{name}}</h1>
+    <div class="row">
+      {{#each animals}}
+        <div class="col-xs-12 col-md-3"> 
+          <div class="animals-thumbnail" data-id="{{@index}}" id="{{@../index}}-{{@index}}">
+            <a href="index.html#anchor"><img class="crop-img" src="{{image1}}" alt=""/></a>
+            <div class="caption">
+              <h4> {{name}} </h4>
+                <p>{{description}}</p>
+            </div> <!-- / caption -->
+          </div> <!-- / animals-thumbnail -->
+        </div> <!-- / col -->
+      {{/each}}
+    </div> <!-- / row -->
+  </script>
+
+  <script id="category-title-template" type="text/x-handlebars-template">
+    <h1 class="category_name">{{name}}</h1>
   </script>
 
   <script id="animals-template" type="text/x-handlebars-template">
     <div class="row">
-      <h2 class="anchor" id="{{name}}">{{name}}</h2>
-      <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
-      <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
-    </div>
+      <h2 class="col-md-2 col-xs-12 anchor" id="anchor">{{name}}</h2>
+      <div class="col-md-5 col-xs-12 figure"><img src="{{image1}}"></div>
+      <div class="col-md-5 col-xs-12 figure"><img src="{{image2}}"></div>
+    </div> <!-- / row -->
     <h3>description of {{name}}: </h3>
     <div>{{description}}</div>
   </script>
 
   <script id="show-all-template" type="text/x-handlebars-template">
     {{#each category}}
-    <h1>{{name}}</h1>
+    <div class="category_block">
+      <h1 class="category_name">{{name}}</h1>
       {{#each animals}}
-      <div class="row">
-        <h2 class="anchor" id="{{name}}">{{name}}</h2>
-        <div class="col-md-6 col-xs-12 parent"><img src="{{image1}}"></div>
-        <div class="col-md-6 col-xs-12 parent"><img src="{{image2}}"></div>
-      </div>
-      <h3>description of {{name}}: </h3>
-      <div>{{description}}</div>
+      <div class="animals_block">
+        <div class="row">
+          <h2 class="col-md-2 col-xs-12 anchor">{{name}}</h2>
+          <div class="col-md-5 col-xs-12 figure"><img src="{{image1}}"></div>
+          <div class="col-md-5 col-xs-12 figure"><img src="{{image2}}"></div>
+        </div> <!-- / row -->
+        <h3>description of {{name}}: </h3>
+        <div>{{description}}</div>
+      </div> <!-- / animals_block -->
       {{/each}}
+    </div> <!-- / category_block -->
     {{/each}}
   </script>
-
 </body>
