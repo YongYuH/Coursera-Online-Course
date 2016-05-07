@@ -35,9 +35,8 @@ $(document).ready(function(){
       // compile animals-template
       var animals_source = $("#animals-template").html();
       var animals_template = Handlebars.compile(animals_source);
-      var animals_index = $(this).data("id");
 
-      // var specific_category = animals_data.category[category_index];
+      var animals_index = $(this).data("id");
       var specific_content = animals_data.category[category_index].animals[animals_index];
 
       // use handlebar.js to render category-template to category div
@@ -55,6 +54,7 @@ $(document).ready(function(){
     // compile category-title-template
     var category_title_source = $("#category-title-template").html();
     var category_title_template = Handlebars.compile(category_title_source);
+
     // compile animals-template
     var animals_source = $("#animals-template").html();
     var animals_template = Handlebars.compile(animals_source);
